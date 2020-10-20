@@ -7,6 +7,15 @@ Discluster is designed to be easily paired with complete client systems, which i
 
 Discluster is designed to be an extremely scalable sharding solution for Discord bots. Its dynamic design makes it suitable for any medium (10,000 guilds) to very large (1,000,000+ guilds) bot. For bots smaller than this, the amount of processing that takes place within the management of clusters may not make it worthwhile, but this solution should theoretically be able to handle any number of guilds.
 
+## Why Does This Exist?
+
+Most Discord bots operate by connecting to the [Discord gateway](https://discord.com/developers/docs/topics/gateway) via [WebSocket connections](https://en.wikipedia.org/wiki/WebSocket). Most bots that are in less than about 5000 guilds can operate via a single connection. However, above this count, the amount of packets sent by the gateway to the client can become too much for the process to handle. This is where [https://discord.com/developers/docs/topics/gateway#sharding](sharding) comes in.
+
+Normally, when a bot implements sharding, all shards are present within a single process, known as a shard cluster (or just 'cluster'). As a bot grows, the amount of shards it requires also grows (at a linear rate). Eventually, the amount of shards required may be too much for an individual process, in which case a multi-cluster system may be implemented, where a bot is broken up into several process, where each one handles a certain number of shards.
+
+Thinking even larger, eventually a bot may grow to a size so large that it may require multiple machines to service the amount of events it recieves. This is where Discluster steps in.<br>
+Discluster is designed to be an easily extensible, multi-machine clustering solution for the largest of Discord bots, allowing for automatic load-balancing and redundancy, all in one elegant solution.
+
 ## Key Objectives
 
     - Provide a complete and painless clustering solution.
@@ -23,8 +32,6 @@ Discluster is split into three different types of process:
     - Cluster processes. Responsible for the managing of individual shards, and event handling.
 
 (Diagram pending)
-
-NOTE: A shard, in Discord terms, is simply a [WebSocket connection](https://en.wikipedia.org/wiki/WebSocket).
 
 ### MASTER
 
