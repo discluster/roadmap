@@ -1,3 +1,5 @@
+![](https://i.jacher.io/discluster.png)
+
 # Discluster
 
 Discluster is a (still theoretical) standalone cluster management system for large Discord bots, written in pure TypeScript.<br>
