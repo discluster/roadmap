@@ -9,7 +9,7 @@ Discluster is designed to be an extremely scalable sharding solution for Discord
 
 ## Why Does This Exist?
 
-Most Discord bots operate by connecting to the [Discord gateway](https://discord.com/developers/docs/topics/gateway) via [WebSocket connections](https://en.wikipedia.org/wiki/WebSocket). Most bots that are in less than about 5000 guilds can operate via a single connection. However, above this count, the amount of packets sent by the gateway to the client can become too much for the process to handle. This is where [Sharding](https://discord.com/developers/docs/topics/gateway#sharding) comes in.
+Most Discord bots operate by connecting to the [Discord gateway](https://discord.com/developers/docs/topics/gateway) via [WebSocket connections](https://en.wikipedia.org/wiki/WebSocket). Most bots that are in less than about 5000 guilds can operate via a single connection. However, above this count, the amount of packets sent by the gateway to the client can become too much for the process to handle. This is where [sharding](https://discord.com/developers/docs/topics/gateway#sharding) comes in.
 
 Normally, when a bot implements sharding, all shards are present within a single process, known as a shard cluster (or just 'cluster'). As a bot grows, the amount of shards it requires also grows (at a linear rate). Eventually, the amount of shards required may be too much for an individual process, in which case a multi-cluster system may be implemented, where a bot is broken up into several process, where each one handles a certain number of shards.
 
