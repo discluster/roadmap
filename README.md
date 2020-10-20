@@ -7,6 +7,13 @@ Discluster is designed to be easily paired with complete client systems, which i
 
 Discluster is designed to be an extremely scalable sharding solution for Discord bots. Its dynamic design makes it suitable for any medium (10,000 guilds) to very large (1,000,000+ guilds) bot. For bots smaller than this, the amount of processing that takes place within the management of clusters may not make it worthwhile, but this solution should theoretically be able to handle any number of guilds.
 
+## Key Objectives
+
+    - Provide a complete and painless clustering solution.
+    - Allow easy extensibility of all components, to create a complete clustered Discord bot solution.
+    - Create an easily maintained and futureproof codebase.
+    - Use minimal third-party dependencies (within reason).
+
 ## Basic Design
 
 Discluster is split into three different types of process:
