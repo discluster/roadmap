@@ -15,6 +15,8 @@ Discluster is split into three different types of process:
     - CONTROL processes. Responsible for lower-level management of cluster processes.
     - Cluster processes. Responsible for the managing of individual shards, and event handling.
 
+(Diagram pending)
+
 ### MASTER
 
 The MASTER server is the main controlling process for the entire system. It is abstracted from all communication with the Discord API. <br>
