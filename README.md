@@ -19,10 +19,12 @@ Discluster is designed to be an extremely scalable sharding solution for Discord
 Discluster is split into three different types of process:
 
     - The centralised MASTER server. Responsible for the managing of CONTROL processes.
-    - CONTROL processes. Responsible for lower-level management of cluster processes.
+    - CONTROL processes. Responsible for per-machine management of cluster processes.
     - Cluster processes. Responsible for the managing of individual shards, and event handling.
 
 (Diagram pending)
+
+NOTE: A shard, in Discord terms, is simply a [WebSocket connection](https://en.wikipedia.org/wiki/WebSocket).
 
 ### MASTER
 
