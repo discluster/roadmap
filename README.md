@@ -39,7 +39,7 @@ Discluster is split into three different types of process:
 ### MASTER
 
 The MASTER server is the main controlling process for the entire system. It is abstracted from all communication with the Discord API. <br>
-MASTER can send control signals to CONTROL processes, including instructions to re-balance the amount of clusters in the system, as well as instruct the CONTROL to change the amount of shards each cluster holds (most useful when combined with max_concurrency when identifying to the Discord gateway).<br>
+MASTER can send control signals to CONTROL processes, including instructions to re-balance the amount of clusters in the system, as well as instruct the CONTROL to change the amount of shards each cluster holds (most useful when combined with max_concurrency when identifying to the Discord gateway) as well as what token to use.<br>
 MASTER can also recieve events from CONTROL processes, usually cluster state information, so that MASTER can re-load-balance in case a CONTROL, or a cluster, fails.<br>
 
 MASTER is also responsible for load-balancing the system when it is started. The system can still operate while the MASTER is not running, but if MASTER is down for an extended period of time it may introduce issues with load balancing and, in addition, instructions to CONTROL processes cannot be properly broadcasted.
