@@ -49,14 +49,14 @@ The MASTER server does **NOT** handle any communication with the Discord API (wi
 ### CONTROL
 
 CONTROL processes are responsible for the management of clusters that exist on an individual system, i.e. there is one CONTROL process per machine.<br>
-CONTROL processes can be started before the system is booted, the processes will wait for MASTER to provide instructions on how many shards to handle in its clusters.
+CONTROL processes can be started before the system is booted, the processes will wait for MASTER to provide instructions on how many shards to handle in its clusters (If any - machines can also be configured to be redundant. More info in the CONTROL repository).
 
-After recieving instructions to spawn clusters, the CONTROL process is also responsible for the management of the clusters. The clusters themselves exist as child processes to CONTROL, and communicate with CONTROL via IPC (as opposed to MASTER, where CONTROL communicates through a WebSocket).
+After recieving instructions to spawn clusters, the CONTROL process is also responsible for the management of the clusters. Clusters may report information about their current state, including the amount of events they are handling. CONTROL processes can automatically load-balance the clusters it manages in case single clusters become too loaded.
 
 ### Clusters
 
 Clusters are the most numerous process type in a Discluster system. Clusters are responsible for serving shards to the Discord gateway, as well as handling events from the Discord gateway.<br>
-Clusters may serve differing amounts of shards, although the amount of shards per cluster will be the same for each machine, i.e. machine A could have 10 per cluster and machine B could have 7 per cluster.
+The amount of shards each cluster handles is 10 (Unless your bot can make use of [concurrent identifications](https://discord.com/developers/docs/topics/gateway#sharding-for-very-large-bots), in which case the shards per cluster will be equal to the maximum concurrency - usually 16).
 
 Each shard in a cluster is essentially just a WebSocket connection. Each socket will pass events up to the cluster for handling, mainly dispatch events (such as message creations).<br>
 From there, a custom packet handling* solution can be 'attached' to the cluster. More detail on this on the cluster repository (soon).
@@ -67,3 +67,22 @@ From there, a custom packet handling* solution can be 'attached' to the cluster.
 
 In terms of hosting capability, Discluster can run on a single machine or many machines. The minimum amount of processes it will spam is 3 - one MASTER, one CONTROL and one cluster.
 Discluster will be written almost exclusively in TypeScript, so running Discluster will require TypeScript. The only other required dependencies should be `ws` and `node-fetch` (for requesting recommended shards), subject to change.
+
+## Current Status
+
+    - / Write READMEs for all 3 components - MASTER, CONTROL and clusters
+    - / Outline and document the specific communication protocol used between MASTER and CONTROL
+    - / Outline and document the specific IPC communication protocol used between CONTROL and clusters
+    - / Write the MASTER server (Specific status in that repository)
+    - / Write the CONTROL server (Specific status in that repository)
+    - / Write the cluster code (Specific status in that repository)
+    - / EXTRA Write a higher-level event-handling client that extends cluster code
+    - / EXTRA MEGA BONUS Write a React dashboard for the control of the entire system
+
+## Contributions
+
+Ideas and small contributions to this project are welcome. For both of these, please open an issue regarding your idea or contribution to check it's something that's beneficial to the project and something I feel is not major enough to be something I personally work on. If it's good, you can then open a PR about it.
+
+**ALL** PRs to code repositories *must* point to the `dev` branch of that repository. Any PRs pointing to `master` will be closed.
+
+[Have a chat!](https://discord.gg/uwRrTfJ)
