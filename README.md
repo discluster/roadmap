@@ -33,7 +33,8 @@ Discluster is split into three different types of process:
     - CONTROL processes. Responsible for per-machine management of cluster processes.
     - Cluster processes. Responsible for the managing of individual shards, and event handling.
 
-(Diagram pending)
+![](https://i.jacher.io/server_layout.png)
+![](https://i.jacher.io/machine_layout.png)
 
 ### MASTER
 
