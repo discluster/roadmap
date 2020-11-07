@@ -65,7 +65,7 @@ From there, a custom packet handling* solution can be 'attached' to the cluster.
 
 ## Prerequisites
 
-In terms of hosting capability, Discluster can run on a single machine or many machines. The minimum amount of processes it will spam is 3 - one MASTER, one CONTROL and one cluster.
+In terms of hosting capability, Discluster can run on a single machine or many machines. The minimum amount of processes it requires to operate is 3 - one MASTER, one CONTROL and one cluster.
 Discluster will be written almost exclusively in TypeScript, so running Discluster will require TypeScript. The only other required dependencies should be `ws` and `node-fetch` (for requesting recommended shards), subject to change.
 
 ## Current Status
