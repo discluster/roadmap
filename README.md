@@ -68,16 +68,22 @@ From there, a custom packet handling* solution can be 'attached' to the cluster.
 In terms of hosting capability, Discluster can run on a single machine or many machines. The minimum amount of processes it requires to operate is 3 - one MASTER, one CONTROL and one cluster.
 Discluster will be written almost exclusively in TypeScript, so running Discluster will require TypeScript. The only other required dependencies should be `ws` and `node-fetch` (for requesting recommended shards), subject to change.
 
+## Testing
+
+*This project needs testers!* If you run a bot with 10,000 or greater guilds, *please* let me know if you are willing to test this system by joining the Discord server at the bottom of this README. I personally do not run a bot large enough to conduct efficient testing for this system, so any testing you do for this system will recieve credit here once the first stable version is released.
+
 ## Current Status
 
-    - / Write READMEs for all 3 components - MASTER, CONTROL and clusters
-    - / Outline and document the specific communication protocol used between MASTER and CONTROL
-    - / Outline and document the specific IPC communication protocol used between CONTROL and clusters
-    - / Write the MASTER server (Specific status in that repository)
-    - / Write the CONTROL server (Specific status in that repository)
-    - / Write the cluster code (Specific status in that repository)
-    - / EXTRA Write a higher-level event-handling client that extends cluster code
-    - / EXTRA MEGA BONUS Write a React dashboard for the control of the entire system
+```fix
+    + Write READMEs for all 3 components - MASTER, CONTROL and clusters
+    + Outline and document the specific communication protocol used between MASTER and CONTROL
+    - Outline and document the specific IPC communication protocol used between CONTROL and clusters
+    - Write the MASTER server (Specific status in that repository)
+    - Write the CONTROL server (Specific status in that repository)
+    - Write the cluster code (Specific status in that repository)
+    - EXTRA Write a higher-level event-handling client that extends cluster code
+    - EXTRA MEGA BONUS Write a React dashboard for the control of the entire system
+```
 
 ## Contributions
 
